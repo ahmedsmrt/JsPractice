@@ -123,11 +123,13 @@ function animateString(id) {
     // }, 100);
     var newText = '';
     var newArr = [];
+    var newArr2 = [];
     var count = 0;
     for ( var i = 0; i < text.length; i++) {
-        newText += text[(text.length - 1) - i];  
+        newText += text[(text.length - 1) - i]; 
         newArr.push(text[(text.length - 1) - i]);
-        
+        newArr2.push(text[i]);
+        console.log(newText);
         if(newArr[i] == 'e') { 
             count = count + 1;
         }
@@ -138,15 +140,75 @@ function animateString(id) {
     //     newArr.push(text[(text.length - 1) - i]);
     // }
     
-
+console.log(text.length);
     console.log(text)
     console.log(newText);
+    console.log(newArr2);
     console.log(newArr);
     console.log(count);
 
 }
 
 
+var ahmed = {
+    name: 'Ahmed',
+    age: 27,
+    job: 'Developer',
+    presentation: function(style, timeofDay) {
+        if (style === 'formal') {
+            console.log(`Good ${timeofDay}, Ladies and Gentleman I'm ${this.name}, I'm a ${this.job} and I'm ${this.age} years old.`);
+        } else if (style === 'friendly') {
+            console.log(`Hey what's up? I'm ${this.name}, I'm a ${this.job} and I'm ${this.age} years old., have a good ${timeofDay}.`);
+        }
+    }
+};
+
+var michelle = {
+    name: 'Michelle',
+    age: 25,
+    job: 'Designer',
+};
+
+
+ahmed.presentation('formal', 'afternoon');
+ahmed.presentation.call(michelle, 'friendly', 'Morning');
+
+
+function Question(question, answers, correctAns) {
+    this.question = question;
+    this.answers = answers;
+    this.correctAns = correctAns;
+}
+
+var q1 = new Question('What is my name?', 
+['Ahmed', 'Mike', 'Dat Nigga'],
+'Dat Nigga');
+
+var q2 = new Question('What is my first cats name?', 
+['Shelly', 'Rick', 'Tiddles', 'Victor'],
+'Victor');
+
+var q3 = new Question('What is my favorite color?', 
+['Red', 'Dark Blue', 'Green', 'Yellow'],
+'Green');
+
+var q4 = new Question('What does my bank account look like right now?', 
+['Scrugglin but not broke', 'In need of love', 'Stacked like it should be'],
+'Scrugglin but not broke');
+
+var q5 = new Question('Will I ever find true love?', 
+['With some Cheetos maybe', 'Of course, shes on bumble bruh', 'After you stop being homeless, maybe'],
+'Of course, shes on bumble bruh');
+
+var questionArr = [q1,q2,q3,q4,q5];
+var answerArr = [q1.]
+var randomNum = Math.floor(Math.random()*5);
+var randomQ = questionArr[randomNum].question
+// var answer = prompt(randomQ);
+console.log(randomNum);
+console.log(randomQ);
+console.log(answer);
+    
 
 
 
