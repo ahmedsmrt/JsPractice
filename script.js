@@ -180,35 +180,37 @@ function Question(question, answers, correctAns) {
     this.correctAns = correctAns;
 }
 
+Question.prototype.displayQuestions = function() {
+    for(var i = 0; i <this.answers.length; i++) {
+        console.log(`${i}: ${this.answers[i]}`);
+    }
+}
+
 var q1 = new Question('What is my name?', 
 ['Ahmed', 'Mike', 'Dat Nigga'],
-'Dat Nigga');
+2);
 
 var q2 = new Question('What is my first cats name?', 
 ['Shelly', 'Rick', 'Tiddles', 'Victor'],
-'Victor');
+3);
 
 var q3 = new Question('What is my favorite color?', 
 ['Red', 'Dark Blue', 'Green', 'Yellow'],
-'Green');
+2);
 
 var q4 = new Question('What does my bank account look like right now?', 
 ['Scrugglin but not broke', 'In need of love', 'Stacked like it should be'],
-'Scrugglin but not broke');
+0);
 
 var q5 = new Question('Will I ever find true love?', 
 ['With some Cheetos maybe', 'Of course, shes on bumble bruh', 'After you stop being homeless, maybe'],
-'Of course, shes on bumble bruh');
+1);
 
 var questionArr = [q1,q2,q3,q4,q5];
-var answerArr = [q1.]
-var randomNum = Math.floor(Math.random()*5);
-var randomQ = questionArr[randomNum].question
-// var answer = prompt(randomQ);
-console.log(randomNum);
-console.log(randomQ);
-console.log(answer);
-    
+var randomNum = Math.floor(Math.random()*questionArr.length);
+
+
+q1.displayQuestions();
 
 
 
