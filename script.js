@@ -173,50 +173,69 @@ var michelle = {
 ahmed.presentation('formal', 'afternoon');
 ahmed.presentation.call(michelle, 'friendly', 'Morning');
 
-
-function Question(question, answers, correctAns) {
-    this.question = question;
-    this.answers = answers;
-    this.correctAns = correctAns;
-}
-
-Question.prototype.displayQuestions = function() {
-    for(var i = 0; i <this.answers.length; i++) {
-        console.log(`${i}: ${this.answers[i]}`);
+(function() {
+    function Question(question, answers, correctAns) {
+        this.question = question;
+        this.answers = answers;
+        this.correctAns = correctAns;
     }
-}
+    
 
-var q1 = new Question('What is my name?', 
-['Ahmed', 'Mike', 'Dat Nigga'],
-2);
+    var q1 = new Question('What is my name?', 
+    ['Ahmed', 'Mike', 'Dat Nigga'],
+    2);
+    
+    var q2 = new Question('What is my first cats name?', 
+    ['Shelly', 'Rick', 'Tiddles', 'Victor'],
+    3);
+    
+    var q3 = new Question('How old are you turning next week?', 
+    ['30', '32', 'How are you even alive?', '127'],
+    3);
+    
+    var q4 = new Question('What does my bank account look like right now?', 
+    ['Scrugglin but not broke', 'In need of love', 'Stacked like it should be'],
+    0);
+    
+    var q5 = new Question('Will I ever find true love?', 
+    ['With some Cheetos maybe', 'Of course, shes on bumble bruh', 'After you stop being homeless, maybe'],
+    1);
+    
+    var questionArr = [q1,q2,q3,q4,q5];
+    var randomNum = Math.floor(Math.random()*questionArr.length);
+    var questionRand = questionArr[randomNum];
+    
 
-var q2 = new Question('What is my first cats name?', 
-['Shelly', 'Rick', 'Tiddles', 'Victor'],
-3);
+    function init() {
+        
+        console.log(questionRand.question);
+        Question.prototype.displayQuestions = function() {
+            for(var i = 0; i <this.answers.length; i++) {
+                console.log(`${i}: ${this.answers[i]}`);
+                
+            }
+        }
+    questionRand.displayQuestions();
+    var userAns = prompt('Which number is the correct answer!?');
+    if(userAns == questionRand.correctAns) {
+        alert('You got it right!');
+    }
+    else if (userAns === null) {
+        alert('Thanks for Playing!');
+    } 
+    else {
+        alert('Try again!');
+        reset();
+    };
+    }
+    var reset = function() {
+        randomNum = Math.floor(Math.random()*questionArr.length);
+        questionRand = questionArr[randomNum];
+        init();
+    }
 
-var q3 = new Question('What is my favorite color?', 
-['Red', 'Dark Blue', 'Green', 'Yellow'],
-2);
-
-var q4 = new Question('What does my bank account look like right now?', 
-['Scrugglin but not broke', 'In need of love', 'Stacked like it should be'],
-0);
-
-var q5 = new Question('Will I ever find true love?', 
-['With some Cheetos maybe', 'Of course, shes on bumble bruh', 'After you stop being homeless, maybe'],
-1);
-
-var questionArr = [q1,q2,q3,q4,q5];
-var randomNum = Math.floor(Math.random()*questionArr.length);
-
-
-q1.displayQuestions();
-
-
-
-
-
-
+    init();
+})();
 
 
 
